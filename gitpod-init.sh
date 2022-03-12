@@ -1,4 +1,6 @@
 #!/bin/sh
 echo '.gitignore' > .gitignore
-chmod +x install-scripts/ipfs.sh
-sudo bash install-scripts/ipfs.sh
+
+#Take out ipfs daemon for now, testing js-ipfs
+#chmod +x install-scripts/ipfs.sh
+#sudo bash install-scripts/ipfs.sh
