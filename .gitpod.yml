@@ -2,7 +2,7 @@ tasks:
   - before: |
     init: |
     command: |
-      chmod +x ./gitpod-init.sh && ./gitpod-init.sh
+      chmod +x gitpod-init.sh && ./gitpod-init.sh
 ports:
   - port: 8000
     onOpen: open-preview
