@@ -6,5 +6,5 @@ echo '.gitignore' > .gitignore
 #sudo bash install-scripts/ipfs.sh
 
 #Files for .gitignore which couldn't be added with install-scripts
-chmod +x install-scripts/other_gitignore.sh
+chmod +x install-scripts/other_gitignores.sh
 sudo bash install-scripts/other_gitignores.sh
