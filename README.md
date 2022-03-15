@@ -15,13 +15,15 @@ Our packages that we install won't be needed in github so we will also be sure t
 
 ## Packages
 
-We really need our computer to have a permanent decentralized storage so we will install ipfs (inter planetary file system) with `install-script/ipfs.sh`
-
 For development we will use the npm packge http-server. It will serve files out of the `app/public` directory. To start the server just run these commands
 ```
 cd app
 http-server
 ```
+
+### Package List
+node http-server
+threejs
 
 
 

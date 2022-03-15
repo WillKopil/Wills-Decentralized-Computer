@@ -1,6 +1,7 @@
 tasks:
   - before: |
       npm install -g http-server
+      npm install three
     init: |
     command: |
       chmod +x gitpod-init.sh && ./gitpod-init.sh
