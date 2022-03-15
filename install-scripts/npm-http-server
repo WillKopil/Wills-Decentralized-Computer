@@ -1,2 +1,2 @@
-#!/bin/sh
-npm install -g http-server
+#!/bin/bash
+sudo npm install -g http-server
