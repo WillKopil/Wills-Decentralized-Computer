@@ -2,6 +2,10 @@
 // BASIC SETUP
 // ------------------------------------------------
 
+
+/*
+console.log("setting up THREE");
+
 // Create an empty scene
 var scene = new THREE.Scene();
 
@@ -19,7 +23,6 @@ renderer.setClearColor("#000000");
 renderer.setSize( window.innerWidth*0.7, window.innerHeight*0.7 );
 
 // Append Renderer to DOM
-console.log("appending the renderer to the body");
 document.body.appendChild( renderer.domElement );
 
 // ------------------------------------------------
@@ -46,3 +49,4 @@ var render = function () {
 };
 
 render();
+*/
