@@ -16,9 +16,10 @@ var renderer = new THREE.WebGLRenderer({antialias:true});
 renderer.setClearColor("#000000");
 
 // Configure renderer size
-renderer.setSize( window.innerWidth, window.innerHeight );
+renderer.setSize( window.innerWidth*0.7, window.innerHeight*0.7 );
 
 // Append Renderer to DOM
+console.log("appending the renderer to the body");
 document.body.appendChild( renderer.domElement );
 
 // ------------------------------------------------
