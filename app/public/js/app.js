@@ -2,8 +2,6 @@
 // BASIC SETUP
 // ------------------------------------------------
 
-
-/*
 console.log("setting up THREE");
 
 // Create an empty scene
@@ -14,16 +12,20 @@ var camera = new THREE.PerspectiveCamera( 75, window.innerWidth/window.innerHeig
 camera.position.z = 4;
 
 // Create a renderer with Antialiasing
-var renderer = new THREE.WebGLRenderer({antialias:true});
+var renderer = new THREE.WebGLRenderer({antialias:true, alpha: true});
 
 // Configure renderer clear color
-renderer.setClearColor("#000000");
+renderer.setClearColor( 0xffffff, 0);
 
 // Configure renderer size
 renderer.setSize( window.innerWidth*0.7, window.innerHeight*0.7 );
 
 // Append Renderer to DOM
-document.body.appendChild( renderer.domElement );
+let renderContainer = document.createElement('div');
+renderContainer.setAttribute('style','height:70%;width:70%;margin:auto;');
+//document.body.appendChild( renderer.domElement );
+renderContainer.appendChild( renderer.domElement );
+document.body.appendChild( renderContainer );
 
 // ------------------------------------------------
 // FUN STARTS HERE
@@ -31,7 +33,7 @@ document.body.appendChild( renderer.domElement );
 
 // Create a Cube Mesh with basic material
 var geometry = new THREE.BoxGeometry( 1, 1, 1 );
-var material = new THREE.MeshBasicMaterial( { color: "#433F81" } );
+var material = new THREE.MeshBasicMaterial( { color: "#bb1cd4" } );
 var cube = new THREE.Mesh( geometry, material );
 
 // Add cube to Scene
@@ -49,4 +51,3 @@ var render = function () {
 };
 
 render();
-*/
