@@ -1,82 +1,47 @@
-import * as THREE from 'three'
-import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
-import { FBXLoader } from 'three/examples/jsm/loaders/FBXLoader'
-import Stats from 'three/examples/jsm/libs/stats.module'
+// ------------------------------------------------
+// BASIC SETUP
+// ------------------------------------------------
 
-const scene = new THREE.Scene()
-scene.add(new THREE.AxesHelper(5))
+// Create an empty scene
+var scene = new THREE.Scene();
 
-const light = new THREE.PointLight()
-light.position.set(0.8, 1.4, 1.0)
-scene.add(light)
+// Create a basic perspective camera
+var camera = new THREE.PerspectiveCamera( 75, window.innerWidth/window.innerHeight, 0.1, 1000 );
+camera.position.z = 4;
 
-const ambientLight = new THREE.AmbientLight()
-scene.add(ambientLight)
+// Create a renderer with Antialiasing
+var renderer = new THREE.WebGLRenderer({antialias:true});
 
-const camera = new THREE.PerspectiveCamera(
-    75,
-    window.innerWidth / window.innerHeight,
-    0.1,
-    1000
-)
-camera.position.set(0.8, 1.4, 1.0)
+// Configure renderer clear color
+renderer.setClearColor("#000000");
 
-const renderer = new THREE.WebGLRenderer()
-renderer.setSize(window.innerWidth, window.innerHeight)
-document.body.appendChild(renderer.domElement)
+// Configure renderer size
+renderer.setSize( window.innerWidth, window.innerHeight );
 
-const controls = new OrbitControls(camera, renderer.domElement)
-controls.enableDamping = true
-controls.target.set(0, 1, 0)
+// Append Renderer to DOM
+document.body.appendChild( renderer.domElement );
 
-//const material = new THREE.MeshNormalMaterial()
-console.log("Attemping to load the model");
-const fbxLoader = new FBXLoader()
-fbxLoader.load(
-    'assets/3d/minion.fbx',
-    (object) => {
-        // object.traverse(function (child) {
-        //     if ((child as THREE.Mesh).isMesh) {
-        //         // (child as THREE.Mesh).material = material
-        //         if ((child as THREE.Mesh).material) {
-        //             ((child as THREE.Mesh).material as THREE.MeshBasicMaterial).transparent = false
-        //         }
-        //     }
-        // })
-        // object.scale.set(.01, .01, .01)
-        scene.add(object)
-    },
-    (xhr) => {
-        console.log((xhr.loaded / xhr.total) * 100 + '% loaded')
-    },
-    (error) => {
-        console.log(error)
-    }
-)
+// ------------------------------------------------
+// FUN STARTS HERE
+// ------------------------------------------------
 
-window.addEventListener('resize', onWindowResize, false)
-function onWindowResize() {
-    camera.aspect = window.innerWidth / window.innerHeight
-    camera.updateProjectionMatrix()
-    renderer.setSize(window.innerWidth, window.innerHeight)
-    render()
-}
+// Create a Cube Mesh with basic material
+var geometry = new THREE.BoxGeometry( 1, 1, 1 );
+var material = new THREE.MeshBasicMaterial( { color: "#433F81" } );
+var cube = new THREE.Mesh( geometry, material );
 
-const stats = Stats()
-document.body.appendChild(stats.dom)
+// Add cube to Scene
+scene.add( cube );
 
-function animate() {
-    requestAnimationFrame(animate)
+// Render Loop
+var render = function () {
+  requestAnimationFrame( render );
 
-    controls.update()
+  cube.rotation.x += 0.01;
+  cube.rotation.y += 0.01;
 
-    render()
+  // Render the scene
+  renderer.render(scene, camera);
+};
 
-    stats.update()
-}
-
-function render() {
-    renderer.render(scene, camera)
-}
-
-animate()
+render();
