@@ -1,10 +1,10 @@
-# Wills-Decentralized-Computer
+# Wills-Decentralized-Computer (simple model loader)
 
 ## Introduction 
 
 With Gitpod making ephemeral computers so accessible and IPFS giving a great file storage component I will being using Github to create and store custom settings for my environment
 
-[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/WillKopil/Wills-Decentralized-Computer)
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/WillKopil/Wills-Decentralized-Computer/edit/Simple-model-loader/)
 
 The first thing you should know is the `.gitpod.yml` will run all the commands listed when the ephemeral computer starts
 
