@@ -2,8 +2,6 @@
 // BASIC SETUP
 // ------------------------------------------------
 
-console.log("setting up THREE");
-
 // Create an empty scene
 var scene = new THREE.Scene();
 
@@ -32,34 +30,16 @@ document.body.appendChild( renderContainer );
 //--------------------------------------------------------
 
 const loader = new THREE.GLTFLoader();
+var planet;
 
 // Load a glTF resource
 loader.load(
 	// resource URL
-	'assets/not_metal.glb',
+	'assets/not_metal.gltf',
 	// called when the resource is loaded
 	function ( gltf ) {
-
-		scene.add( gltf.scene );
-
-		gltf.animations; // Array<THREE.AnimationClip>
-		gltf.scene; // THREE.Group
-		gltf.scenes; // Array<THREE.Group>
-		gltf.cameras; // Array<THREE.Camera>
-		gltf.asset; // Object
-
-	},
-	// called while loading is progressing
-	function ( xhr ) {
-
-		console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
-
-	},
-	// called when loading has errors
-	function ( error ) {
-
-		console.log( 'An error happened' );
-
+    planet = gltf.scene;
+		scene.add( planet );
 	}
 );
 
@@ -69,7 +49,7 @@ loader.load(
 // ------------------------------------------------
 
 // Ambiant lighting
-const light = new THREE.AmbientLight( 0x404040 ); // soft white light
+const light = new THREE.AmbientLight( 0xffffff, 1 ); // soft white light
 scene.add( light );
 
 // Create a Cube Mesh with basic material
@@ -84,8 +64,8 @@ scene.add( light );
 var render = function () {
   requestAnimationFrame( render );
 
-  //cube.rotation.x += 0.01;
-  //cube.rotation.y += 0.01;
+  planet.rotation.x += 0.01;
+  planet.rotation.y += 0.01;
 
   // Render the scene
   renderer.render(scene, camera);
