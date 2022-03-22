@@ -36,7 +36,7 @@ const loader = new THREE.GLTFLoader();
 // Load a glTF resource
 loader.load(
 	// resource URL
-	'assets/water.glb',
+	'assets/not_metal.glb',
 	// called when the resource is loaded
 	function ( gltf ) {
 
@@ -67,6 +67,10 @@ loader.load(
 // ------------------------------------------------
 // FUN STARTS HERE
 // ------------------------------------------------
+
+// Ambiant lighting
+const light = new THREE.AmbientLight( 0x404040 ); // soft white light
+scene.add( light );
 
 // Create a Cube Mesh with basic material
 //var geometry = new THREE.BoxGeometry( 1, 1, 1 );
