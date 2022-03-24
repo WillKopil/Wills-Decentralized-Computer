@@ -32,16 +32,16 @@ document.body.appendChild( renderContainer );
 //--------------------------------------------------------
 
 const loader = new THREE.GLTFLoader();
-var planet;
+var forest;
 
 // Load a glTF resource
 loader.load(
 	// resource URL
-	'assets/not_metal.gltf',
+	'kokiri/kokiri_forest.gltf',
 	// called when the resource is loaded
 	function ( gltf ) {
-    planet = gltf.scene;
-		scene.add( planet );
+    forest = gltf.scene;
+		scene.add( forest );
 	}
 );
 
@@ -70,8 +70,8 @@ var render = function () {
 
   controls.update(clock.getDelta());
 
-  planet.rotation.x += 0.01;
-  planet.rotation.y += 0.01;
+  //planet.rotation.x += 0.01;
+  //planet.rotation.y += 0.01;
 
   // Render the scene
   renderer.render(scene, camera);
