@@ -12,15 +12,17 @@ camera.position.z = 4;
 // Create a renderer with Antialiasing
 var renderer = new THREE.WebGLRenderer({antialias:true, alpha: true});
 
+var controls = new THREE.FirstPersonControls(camera, renderer.domElement);
+
 // Configure renderer clear color
 renderer.setClearColor( 0xffffff, 0);
 
 // Configure renderer size
-renderer.setSize( window.innerWidth*0.7, window.innerHeight*0.7 );
+renderer.setSize( window.innerWidth, window.innerHeight );
 
 // Append Renderer to DOM
 let renderContainer = document.createElement('div');
-renderContainer.setAttribute('style','height:70%;width:70%;margin:auto;');
+renderContainer.setAttribute('style','z-index: -1;position:absolute;top:0;left:0;');
 //document.body.appendChild( renderer.domElement );
 renderContainer.appendChild( renderer.domElement );
 document.body.appendChild( renderContainer );
@@ -60,9 +62,13 @@ scene.add( light );
 // Add cube to Scene
 //scene.add( cube );
 
+var clock = new THREE.Clock();
+
 // Render Loop
 var render = function () {
   requestAnimationFrame( render );
+
+  controls.update(clock.getDelta());
 
   planet.rotation.x += 0.01;
   planet.rotation.y += 0.01;
