@@ -22,7 +22,7 @@ renderer.setSize( window.innerWidth, window.innerHeight );
 
 // Append Renderer to DOM
 let renderContainer = document.createElement('div');
-renderContainer.setAttribute('style','z-index: -1;position:absolute;top:0;left:0;');
+renderContainer.setAttribute('style','z-index: -1;position:fixed;top:0;left:0;');
 //document.body.appendChild( renderer.domElement );
 renderContainer.appendChild( renderer.domElement );
 document.body.appendChild( renderContainer );
@@ -42,6 +42,12 @@ loader.load(
 	function ( gltf ) {
     forest = gltf.scene;
 		scene.add( forest );
+	},
+	// called while loading is progressing
+	function ( xhr ) {
+
+		console.log( ( xhr.loaded / xhr.total * 100 ) + '% loaded' );
+
 	}
 );
 
