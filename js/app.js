@@ -76,6 +76,7 @@ var spline = new THREE.CatmullRomCurve3( [
 ] );
 
 //Add spline to scene
+/*
 const points = spline.getPoints( 50 );
 const geometry = new THREE.BufferGeometry().setFromPoints( points );
 
@@ -85,6 +86,18 @@ const material = new THREE.LineBasicMaterial( { color: 0xff0000 } );
 const curveObject = new THREE.Line( geometry, material );
 
 scene.add(curveObject);
+*/
+
+// Skydome
+/*
+var skyGeo = new THREE.SphereGeometry(100000, 25, 25); 
+
+var loader  = new THREE.TextureLoader(), texture = loader.load( "assets/raindome.png" );
+
+var material = new THREE.MeshPhongMaterial({ 
+  map: texture,
+});
+*/
 
 var camPosIndex = 0;
 
