@@ -113,6 +113,38 @@ setInterval(function(){
 },1000);
 */
 
+
+//Moving camera with scroll
+/*
+var scroll_limit = Math.max( document.body.scrollHeight, document.body.offsetHeight, document.documentElement.clientHeight, document.documentElement.scrollHeight, document.documentElement.offsetHeight );
+
+function moveCamera() {
+  const t = document.body.getBoundingClientRect().top;
+
+  camPosIndex++;
+  if (camPosIndex > 10000) {
+    camPosIndex = 0;
+  }
+  
+  var camPos = spline.getPoint(camPosIndex / 10000);
+  var camRot = spline.getTangent(camPosIndex / 10000);
+
+  camera.position.x = camPos.x;
+  camera.position.y = camPos.y;
+  camera.position.z = camPos.z;
+  
+  camera.rotation.x = camRot.x;
+  camera.rotation.y = camRot.y;
+  camera.rotation.z = camRot.z;
+  
+  camera.lookAt(spline.getPoint((camPosIndex+1) / 10000));
+}
+*/
+
+document.body.onscroll = moveCamera;
+moveCamera();
+
+
 // Render Loop
 var render = function () {
   requestAnimationFrame( render );
@@ -138,9 +170,6 @@ var render = function () {
 
   //This line allows camera control via keys and mouse
   //controls.update(clock.getDelta());
-
-  //planet.rotation.x += 0.01;
-  //planet.rotation.y += 0.01;
 
   // Render the scene
   renderer.render(scene, camera);
