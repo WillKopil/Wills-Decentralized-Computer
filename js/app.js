@@ -139,10 +139,10 @@ function moveCamera() {
   
   camera.lookAt(spline.getPoint((camPosIndex+1) / 10000));
 }
-*/
 
 document.body.onscroll = moveCamera;
 moveCamera();
+*/
 
 
 // Render Loop
