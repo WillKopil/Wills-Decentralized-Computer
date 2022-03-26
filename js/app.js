@@ -91,7 +91,7 @@ scene.add(curveObject);
 // Skydome
 const textureLoader = new THREE.TextureLoader();
 
-const sky_texture = textureLoader.load('assets/raindome.png');
+const sky_texture = textureLoader.load('assets/raindome1.png');
 
 const dome = new THREE.Mesh(new THREE.SphereGeometry(10000, 25, 25), 
   new THREE.MeshStandardMaterial(
@@ -118,7 +118,6 @@ var render = function () {
   requestAnimationFrame( render );
 
   // Camera follow spline
-  /*
   camPosIndex++;
   if (camPosIndex > 10000) {
     camPosIndex = 0;
@@ -136,10 +135,9 @@ var render = function () {
   camera.rotation.z = camRot.z;
   
   camera.lookAt(spline.getPoint((camPosIndex+1) / 10000));
-*/
 
   //This line allows camera control via keys and mouse
-  controls.update(clock.getDelta());
+  //controls.update(clock.getDelta());
 
   //planet.rotation.x += 0.01;
   //planet.rotation.y += 0.01;
