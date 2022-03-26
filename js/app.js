@@ -115,19 +115,19 @@ setInterval(function(){
 
 
 //Moving camera with scroll
-/*
 var scroll_limit = Math.max( document.body.scrollHeight, document.body.offsetHeight, document.documentElement.clientHeight, document.documentElement.scrollHeight, document.documentElement.offsetHeight );
 
 function moveCamera() {
-  const t = document.body.getBoundingClientRect().top;
+  let t = document.body.getBoundingClientRect().top;
 
-  camPosIndex++;
-  if (camPosIndex > 10000) {
-    camPosIndex = 0;
+  if (-t < 1) {
+    t = -1;
   }
+
+  camPosIndex = -t;
   
-  var camPos = spline.getPoint(camPosIndex / 10000);
-  var camRot = spline.getTangent(camPosIndex / 10000);
+  var camPos = spline.getPoint(camPosIndex / scroll_limit);
+  var camRot = spline.getTangent(camPosIndex / scroll_limit);
 
   camera.position.x = camPos.x;
   camera.position.y = camPos.y;
@@ -137,12 +137,11 @@ function moveCamera() {
   camera.rotation.y = camRot.y;
   camera.rotation.z = camRot.z;
   
-  camera.lookAt(spline.getPoint((camPosIndex+1) / 10000));
+  camera.lookAt(spline.getPoint((camPosIndex+1) / scroll_limit));
 }
 
 document.body.onscroll = moveCamera;
 moveCamera();
-*/
 
 
 // Render Loop
@@ -150,6 +149,7 @@ var render = function () {
   requestAnimationFrame( render );
 
   // Camera follow spline
+  /*
   camPosIndex++;
   if (camPosIndex > 10000) {
     camPosIndex = 0;
@@ -167,6 +167,7 @@ var render = function () {
   camera.rotation.z = camRot.z;
   
   camera.lookAt(spline.getPoint((camPosIndex+1) / 10000));
+  */
 
   //This line allows camera control via keys and mouse
   //controls.update(clock.getDelta());
