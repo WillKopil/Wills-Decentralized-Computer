@@ -55,9 +55,30 @@ body {
           animation-fill-mode: forwards;
 }
 
+.article {
+  background: rgba(0,0,0,0.5);
+  border-radius: 25px;
+  padding: 25px;
+  margin-top:20px;
+  margin-bottom:20px;
+}
+
+.hard-skills {
+}
+
+.soft-skills {
+}
+
+.skills-header {
+  text-align:center;
+  font-size:3em;
+  color:white;
+}
+
 .myP {
 	text-align: justify;
 	font-size: 20px;
+  color:white;
 }
 @media all and (max-width:700px){
 	.myP {
