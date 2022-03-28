@@ -22,13 +22,41 @@ body {
   }
 
 .myH2 {
-	text-align:center;
-	font-size: 4rem;
+	text-align:justify;
+	font-size: 5em;
+  z-index:1;
 }
+
+// Keyframes
+/* Chrome, Safari, Opera */
+@-webkit-keyframes bg-color {
+  50% {background-position: right center;}
+}
+/* Standard syntax */
+@keyframes bg-color {
+  50% {background-position: right center;}
+}
+
+.c-article__title {
+  font-family: 'FreeMono', monospace;
+  background: -webkit-gradient(linear, left top, right top, from(rgba(156,1,255,1)), color-stop(50%, rgba(255,91,219,1)), to(rgba(156,1,255,1)));
+  background: -o-linear-gradient(left, rgba(156,1,255,1) 0%, rgba(255,91,219,1) 50%, rgba(156,1,255,1) 100%);
+  background: linear-gradient(90deg, rgba(156,1,255,1) 0%, rgba(255,91,219,1) 50%, rgba(156,1,255,1) 100%);
+  background-size: 1600px 200px;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-animation-duration: 5s;
+          animation-duration: 5s;
+  -webkit-animation-name: bg-color;
+          animation-name: bg-color;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
 .myP {
 	text-align: justify;
-	padding-left:15%;
-	padding-right:15%;
 	font-size: 20px;
 }
 @media all and (max-width:700px){
